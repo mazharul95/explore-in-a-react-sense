@@ -37,3 +37,9 @@
   }
 }
 
+.container{
+  color: red;
+  background-color: aquamarine;
+  padding: 20px;
+  border-radius: 20px;
+}
