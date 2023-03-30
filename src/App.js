@@ -1,57 +1,31 @@
 import logo from './logo.svg';
 import './App.css';
-
-const number = 5555;
-const singers = [
-  {name: 'Dr.Mahfuj', job:'Singer'},
-  {name: 'Eva Rahman', job:'Singer2'},
-  {name: 'Agun', job:'Sopno'},
-  {name: 'Shuvro', job:'pathor'}
-];
+import { useState } from 'react';
 
 function App() {
-  const nayoks = ['Rubel','BappaDa','Kuber','Jashim','OmorSani',]
   return (
     <div className="App">
-    {
-      nayoks.map(nayok => <li>Name: {nayok}</li>)
-    }
-    {
-      nayoks.map(nayok => <Person name={nayok}></Person>)
-    }
-    {
-      singers.map(singer => <Person name={singer.name}></Person>)
-    }
-   
-     {/*
-      <Person name={nayoks[0]} nayika="Mousumi"></Person>
-      <Person name={nayoks[1]} nayika="Cheka"></Person>
-      <Person name={nayoks[2]} nayika="kopila"></Person>
-      */}
-      <h5>New Component, YAY</h5>
-      <p>rock mama react mama</p>
-      <Friend movie="shingam" phone="01724"></Friend>
-      <Friend movie="Drisham" phone="01924"></Friend>
+    <Counter></Counter>
     </div>
   );
 }
 
-function Person(props){
-  console.log(props);
+function Counter(){
+  const [count, setCount] = useState(33);
+  
+  const increaseCount = () => setCount(count + 1);
+  const decreaseCount = () => setCount(count - 1);
+ /*
+  const increaseCount = () =>{
+    const newCount = count +1;
+    setCount(newCount);
+  }
+*/
   return (
-    <div className='person'>
-      <h1>{props.name}</h1>
-      <p>Nayika: {props.nayika}</p>
-    </div>
-  )
-}
-
-function Friend(props){
-  console.log(props)
-  return (
-    <div className='container'>
-        <h3>Name: {props.movie}</h3>
-        <p>Phone: {props.phone}</p>
+    <div>
+      <h2>Count: {count}</h2>
+      <button onClick={increaseCount}>Increase</button>
+      <button onClick={decreaseCount}>decrease</button>
     </div>
   )
 }
